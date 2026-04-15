@@ -1,0 +1,20 @@
+name: Disk Check Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-disk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Give permission
+        run: chmod +x disk_check.sh
+
+      - name: Run script
+        run: ./disk_check.sh
